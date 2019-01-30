@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class SystemDefaults {
   private Properties properties;
-  private final String PROPERTY_FILE_PATH = "configs/Configuration.properties";
+  private final String PROPERTY_FILE_PATH = "configs/ConfigurationExample.properties";
   private static final String NOT_SPECIFIED_ERR_MSG = " is not specified in the Configuration.properties file.";
 
   public SystemDefaults(){
