@@ -1,12 +1,11 @@
 ### IntelliJ IDEA ###
-.idea
+.idea/
 *.iws
 *.iml
-*.xml
 *.ipr
 *.jar
 *.exe
-/out/
+
 
 ### Maven ###
 log/
@@ -38,5 +37,5 @@ hs_err_pid*
 ### System generated files ###
 .DS_Store
 
-### Config file ###
+### configurations.ConfigImdb file ###
 configs/Configuration.properties
