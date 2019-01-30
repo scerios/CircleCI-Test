@@ -1,6 +1,5 @@
 package tests;
 
-import configurations.ConfigTest;
 import dataProvider.SystemDefaults;
 import keywords.LogIn;
 import keywords.WatchIssue;
@@ -18,7 +17,7 @@ public class WatchIssueTest {
 
   @BeforeClass
   public static void setBase() {
-    System.setProperty(defaults.getWebDriver(), ConfigTest.driver);
+    System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
     driver = new ChromeDriver();
   }
 

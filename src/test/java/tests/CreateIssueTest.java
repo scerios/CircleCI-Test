@@ -1,6 +1,5 @@
 package tests;
 
-import configurations.ConfigTest;
 import dataProvider.SystemDefaults;
 import enums.IssueType;
 import enums.Priority;
@@ -23,7 +22,7 @@ public class CreateIssueTest {
 
   @BeforeClass
   public static void setBase() {
-    System.setProperty(defaults.getWebDriver(), ConfigTest.driver);
+    System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
     driver = new ChromeDriver();
   }
 

@@ -1,6 +1,5 @@
 package tests;
 
-import configurations.ConfigTest;
 import dataProvider.SystemDefaults;
 import keywords.LogIn;
 import org.junit.*;
@@ -14,7 +13,7 @@ public class LogInTest {
 
   @BeforeClass
   public static void setBase() {
-    System.setProperty(defaults.getWebDriver(), ConfigTest.driver);
+    System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
     driver = new ChromeDriver();
   }
 
