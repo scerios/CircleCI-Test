@@ -9,6 +9,7 @@ import keywords.ViewIssue;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ViewIssueTest {
   private static WebDriver webDriver;
@@ -18,7 +19,10 @@ public class ViewIssueTest {
   @BeforeClass
   public static void setBase() {
     System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
-    webDriver = new ChromeDriver();
+    ChromeOptions ChromeOptions = new ChromeOptions();
+    ChromeOptions.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
+    webDriver = new ChromeDriver(ChromeOptions);
+//    webDriver = new ChromeDriver();
   }
 
   @Before
