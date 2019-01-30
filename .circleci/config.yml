@@ -2,7 +2,11 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: amitaarya17/docker-maven-chrome
+    working_directory: ~/repo
+    environment:
+      MAVEN_OPTS: -Xmx3200m
     steps:
-    - checkout
-    run: echo "First Hello World"
+      - checkout
+      - run: mvn dependency:go-offline
+      - run: mvn integration-test
