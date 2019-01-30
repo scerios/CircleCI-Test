@@ -9,46 +9,42 @@ import keywords.ViewIssue;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ViewIssueTest {
-  private static WebDriver webDriver;
+  private static WebDriver driver;
 
   private static SystemDefaults defaults = new SystemDefaults();
 
   @BeforeClass
   public static void setBase() {
     System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
-    ChromeOptions ChromeOptions = new ChromeOptions();
-    ChromeOptions.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
-    webDriver = new ChromeDriver(ChromeOptions);
-//    webDriver = new ChromeDriver();
+    driver = new ChromeDriver();
   }
 
   @Before
   public void setUp() {
-    webDriver.manage().deleteAllCookies();
-    LogIn.setUp(webDriver);
-    LogIn.logIn(webDriver, defaults.getUserName(), defaults.getPwd(), defaults);
+    driver.manage().deleteAllCookies();
+    LogIn.setUp(driver);
+    LogIn.logIn(driver, defaults.getUserName(), defaults.getPwd(), defaults);
   }
 
   @Test
   public void assertViewIssue() {
-    ViewIssue.goToIssue(webDriver, defaults.getUrl()+"/browse/SANDBOX-275", defaults);
+    ViewIssue.goToIssue(driver, defaults.getUrl()+"/browse/SANDBOX-275", defaults);
 
-    Assert.assertEquals(ProjectType.SANDBOX.toString().toLowerCase(), ViewIssue.getProjectType(webDriver,defaults).toLowerCase());
-    Assert.assertEquals("Testing Sandbox Project name", ViewIssue.getSummary(webDriver, defaults));
-    Assert.assertEquals(IssueType.EPIC.toString().toLowerCase(), ViewIssue.getIssueType(webDriver, defaults).toLowerCase());
-    Assert.assertEquals(Priority.MEDIUM.toString().toLowerCase(), ViewIssue.getPriority(webDriver, defaults).toLowerCase());
-    Assert.assertEquals("Click to add description", ViewIssue.getDescription(webDriver, defaults));
-    Assert.assertEquals("TO DO", ViewIssue.getStatus(webDriver, defaults));
-    Assert.assertEquals("Unresolved", ViewIssue.getResolution(webDriver, defaults));
-    Assert.assertEquals("User4", ViewIssue.getAssignee(webDriver, defaults));
+    Assert.assertEquals(ProjectType.SANDBOX.toString().toLowerCase(), ViewIssue.getProjectType(driver,defaults).toLowerCase());
+    Assert.assertEquals("Testing Sandbox Project name", ViewIssue.getSummary(driver, defaults));
+    Assert.assertEquals(IssueType.EPIC.toString().toLowerCase(), ViewIssue.getIssueType(driver, defaults).toLowerCase());
+    Assert.assertEquals(Priority.MEDIUM.toString().toLowerCase(), ViewIssue.getPriority(driver, defaults).toLowerCase());
+    Assert.assertEquals("Click to add description", ViewIssue.getDescription(driver, defaults));
+    Assert.assertEquals("TO DO", ViewIssue.getStatus(driver, defaults));
+    Assert.assertEquals("Unresolved", ViewIssue.getResolution(driver, defaults));
+    Assert.assertEquals("User4", ViewIssue.getAssignee(driver, defaults));
   }
 
   @AfterClass
   public static void clearUp() {
-    webDriver.quit();
+    driver.quit();
   }
 }
 
