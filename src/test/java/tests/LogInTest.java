@@ -5,16 +5,20 @@ import keywords.LogIn;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class LogInTest {
   private static WebDriver driver;
+  private static ChromeOptions options = new ChromeOptions();
+
   private static SystemDefaults defaults = new SystemDefaults();
   private final String ERROR_MSG = "Sorry, your username and password are incorrect - please try again.";
 
   @BeforeClass
   public static void setBase() {
     System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
-    driver = new ChromeDriver();
+    options.setHeadless(true);
+    driver = new ChromeDriver(options);
   }
 
   @Before

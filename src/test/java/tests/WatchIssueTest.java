@@ -6,6 +6,7 @@ import keywords.WatchIssue;
 import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,12 +14,15 @@ public class WatchIssueTest {
 
   private static SystemDefaults defaults = new SystemDefaults();
   private static WebDriver driver;
+  private static ChromeOptions options = new ChromeOptions();
+
   private String issueURL = defaults.getUrl() + "/browse/JTA-57";
 
   @BeforeClass
   public static void setBase() {
     System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
-    driver = new ChromeDriver();
+    options.setHeadless(true);
+    driver = new ChromeDriver(options);
   }
 
   @Before
