@@ -21,7 +21,7 @@ public class LogIn {
   }
 
   public static void logIn(WebDriver driver, String userName, String password, SystemDefaults defaults) {
-    driver.get(defaults.getUrl());
+    driver.get("https://" + defaults.getUrl());
     wait = new WebDriverWait(driver, 10);
 
     logInUserName = wait.until(ExpectedConditions.elementToBeClickable(By.id("login-form-username")));
