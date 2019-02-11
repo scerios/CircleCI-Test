@@ -17,18 +17,18 @@ public class LogInTest {
   @BeforeClass
   public static void setBase() {
     System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
-    options.setHeadless(true);
-//    options.addArguments("disable-infobars"); // disabling infobars
-//    options.addArguments("--disable-extensions"); // disabling extensions
-//    options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-//    options.addArguments("--no-sandbox"); // Bypass OS security model
+//    options.setHeadless(true);
+    options.addArguments("disable-infobars"); // disabling infobars
+    options.addArguments("--disable-extensions"); // disabling extensions
+    options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+    options.addArguments("--no-sandbox"); // Bypass OS security model
     driver = new ChromeDriver(options);
   }
 
   @Before
   public void setUp() {
     driver.manage().deleteAllCookies();
-//    LogIn.setUp(driver);
+    LogIn.setUp(driver);
   }
 
   @After
