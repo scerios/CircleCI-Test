@@ -17,7 +17,7 @@ public class LogInTest {
   @BeforeClass
   public static void setBase() {
     System.setProperty(defaults.getWebDriver(), defaults.getDriverPath());
-    options.setHeadless(true);
+//    options.setHeadless(true);
     driver = new ChromeDriver(options);
   }
 
