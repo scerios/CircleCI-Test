@@ -21,7 +21,7 @@ public class LogIn {
   }
 
   public static void logIn(WebDriver driver, String userName, String password, SystemDefaults defaults) {
-    driver.get("http://jira.greenfox.codecanvas.hu");
+    driver.get("https://" + defaults.getUrl() + "/secure/Dashboard.jspa");
     wait = new WebDriverWait(driver, 10);
 
     logInUserName = wait.until(ExpectedConditions.elementToBeClickable(By.id("login-form-username")));
