@@ -48,10 +48,10 @@ public class SystemDefaults {
     throw new RuntimeException("URL" + NOT_SPECIFIED_ERR_MSG);
   }
 
-  public long getWaitTimeOut() {
+  public int getWaitTimeOut() {
     String timeOut = properties.getProperty("WAIT_TIMEOUT");
     if (timeOut != null) {
-      return Long.parseLong(timeOut);
+      return Integer.parseInt(timeOut);
     }
     throw new RuntimeException("Timeout" + NOT_SPECIFIED_ERR_MSG);
   }
