@@ -23,7 +23,7 @@ public class LogIn {
   public static void logIn(WebDriver driver, String userName, String password, SystemDefaults defaults) {
 //    driver.get();
     driver.navigate().to("https://" + defaults.getUrl() + "/secure/Dashboard.jspa");
-    wait = new WebDriverWait(driver, 10);
+    wait = new WebDriverWait(driver, 50);
 
     logInUserName = wait.until(ExpectedConditions.elementToBeClickable(By.id("login-form-username")));
     logInUserName.clear();
@@ -38,14 +38,14 @@ public class LogIn {
   }
 
   public static String getLoggedInUserName(WebDriver driver, SystemDefaults defaults) {
-    wait = new WebDriverWait(driver, 10);
+    wait = new WebDriverWait(driver, 50);
 
     loggedInUserName = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("header-details-user-fullname")));
     return loggedInUserName.getAttribute("data-username");
   }
 
   public static String getLogInErrorMsg(WebDriver driver, SystemDefaults defaults) {
-    wait = new WebDriverWait(driver, 10);
+    wait = new WebDriverWait(driver, 50);
     wait.until(ExpectedConditions.presenceOfElementLocated(By.id("usernameerror")));
 
     logInErrorMsg = driver.findElement(By.xpath("//div[@id='usernameerror']/p"));
